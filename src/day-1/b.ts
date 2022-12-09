@@ -1,9 +1,13 @@
 import { readData } from '../utils';
 import chalk from 'chalk';
+import {getCaloriesPerElf} from "./a";
 
 export async function day1b(dataPath?: string) {
   const data = await readData(dataPath);
-  return 0;
+  const caloriesPerElf = getCaloriesPerElf(data);
+  caloriesPerElf.sort((a, b) => b - a);
+  caloriesPerElf.length = 3;
+  return caloriesPerElf.reduce((a, b) => a + b);
 }
 
 // don't change below this line
